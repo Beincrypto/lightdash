@@ -121,4 +121,8 @@ COPY ./docker/prod-entrypoint.sh /usr/bin/prod-entrypoint.sh
 
 EXPOSE 8080
 ENTRYPOINT ["/usr/bin/prod-entrypoint.sh"]
+
+ARG RENDER_EXTERNAL_URL
+ENV SITE_URL=$RENDER_EXTERNAL_URL
+
 CMD ["yarn", "workspace", "backend", "start"]
