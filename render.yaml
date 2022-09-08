@@ -10,7 +10,7 @@ services:
     env: docker
     name: lightdash
     dockerContext: .
-    dockerfilePath: dockerfile-prs
+    dockerfilePath: dockerfile
     initialDeployHook: /usr/bin/renderDeployHook.sh
     envVars:
       - key: PGHOST
@@ -33,18 +33,9 @@ services:
         fromDatabase:
           name: jaffle_db
           property: password
-      - fromGroup: rudder-settings
       - key: LIGHTDASH_SECRET
         generateValue: true
       - key: SECURE_COOKIES
         value: true
       - key: TRUST_PROXY
         value: true
-
-envVarGroups:
-  - name: rudder-settings
-    envVars:
-      - key: RUDDERSTACK_WRITE_KEY
-        value: 1vikeGadtB0Y0oRDFNL2Prdhkbp
-      - key: RUDDERSTACK_DATA_PLANE_URL
-        value: https://analytics.lightdash.com

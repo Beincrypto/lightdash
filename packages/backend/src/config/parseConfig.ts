@@ -160,11 +160,9 @@ const mergeWithEnvironment = (config: LightdashConfigIn): LightdashConfig => {
             : undefined,
         rudder: {
             writeKey:
-                process.env.RUDDERSTACK_WRITE_KEY ||
-                '1vqkSlWMVtYOl70rk3QSE0v1fqY',
+                process.env.RUDDERSTACK_WRITE_KEY || '',
             dataPlaneUrl:
-                process.env.RUDDERSTACK_DATA_PLANE_URL ||
-                'https://analytics.lightdash.com',
+                process.env.RUDDERSTACK_DATA_PLANE_URL || '',
         },
         sentry: {
             dsn: process.env.SENTRY_DSN || '',
@@ -204,9 +202,9 @@ const mergeWithEnvironment = (config: LightdashConfigIn): LightdashConfig => {
             },
         },
         intercom: {
-            appId: process.env.INTERCOM_APP_ID || 'zppxyjpp',
+            appId: process.env.INTERCOM_APP_ID || '',
             apiBase:
-                process.env.INTERCOM_APP_BASE || 'https://api-iam.intercom.io',
+                process.env.INTERCOM_APP_BASE || '',
         },
         cohere: {
             token: process.env.COHERE_TOKEN || '',
